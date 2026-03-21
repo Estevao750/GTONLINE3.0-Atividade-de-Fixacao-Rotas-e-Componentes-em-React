@@ -16,6 +16,11 @@ function Sidebar() {
         <Link to="/">🏠 Home</Link>
         <Link to="/sobre">📖 Sobre</Link>
         <Link to="/contato">✉️ Contato</Link>
+        <hr />
+        {}
+        <Link to="/user/777">👤 Perfil do Usuário 777</Link>
+        <Link to="/user/joaosilva">👤 Perfil do João</Link>
+        <Link to="/caminho-aleatorio">🚨 Testar Erro 404</Link>
       </nav>
     </aside>
   )
