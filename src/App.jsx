@@ -1,15 +1,44 @@
-import { Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route, Link, Outlet } from 'react-router-dom'
+
+function Header() {
+  return (
+    <header style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>
+      <nav>
+        <Link to="/">Home</Link> | {" "}
+        <Link to="/sobre">Sobre</Link> | {" "}
+        <Link to="/contato">Contato</Link>
+      </nav>
+    </header>
+  )
+}
+
+function Footer() {
+  return (
+    <footer style={{ marginTop: '20px', padding: '10px', borderTop: '1px solid #ccc', textAlign: 'center' }}>
+      <p>© 2026 Meu Projeto React</p>
+    </footer>
+  )
+}
+
+function Layout() {
+  return (
+    <div>
+      <Header />
+      {}
+      <main style={{ padding: '20px' }}>
+        <Outlet />
+      </main>
+      
+      <Footer />
+    </div>
+  )
+}
 
 function Home() {
   return (
     <div>
       <h1>Página Inicial 🏠</h1>
       <p>Bem-vindo ao meu novo projeto React!</p>
-      <nav>
-        {}
-        <Link to="/sobre">Ir para Sobre</Link> | {" "}
-        <Link to="/contato">Ir para Contato</Link>
-      </nav>
     </div>
   )
 }
@@ -19,10 +48,6 @@ function About() {
     <div>
       <h1>Sobre o Projeto 📖</h1>
       <p>Este é um projeto criado do zero usando Vite e React Router.</p>
-      <nav>
-        <Link to="/">Voltar para Home</Link> | {" "}
-        <Link to="/contato">Ir para Contato</Link>
-      </nav>
     </div>
   )
 }
@@ -32,10 +57,6 @@ function Contact() {
     <div>
       <h1>Contato ✉️</h1>
       <p>Fale conosco enviando um email para ola@projeto.com</p>
-      <nav>
-        <Link to="/">Voltar para Home</Link> | {" "}
-        <Link to="/sobre">Ir para Sobre</Link>
-      </nav>
     </div>
   )
 }
@@ -43,9 +64,14 @@ function Contact() {
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/sobre" element={<About />} />
-      <Route path="/contato" element={<Contact />} />
+      {}
+      <Route path="/" element={<Layout />}>
+        {}
+        <Route index element={<Home />} />
+        {}
+        <Route path="sobre" element={<About />} />
+        <Route path="contato" element={<Contact />} />
+      </Route>
     </Routes>
   )
 }
